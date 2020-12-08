@@ -12,6 +12,23 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
+                  <select type="text" class="form-control" placeholder="Account Type" autocomplete="accountType" required>
+                    <option value="default">Select Account Type</option>
+                    <option value="nrva-current">NRVA Current - Conventional</option>
+                    <option value="nrva-saving">NRVA Saving - Conventional</option>
+                    <option value="nrva-current-islamic">NRVA Current - Islamic</option>
+                    <option value="narva-saving-islamic">NRVA Saving – Islamic</option>
+                    <option value="fcva-current">FCVA Current - Conventional</option>
+                    <option value="fcva-saving">FCVA Saving - Conventional</option>
+                    <option value="fcva-current-islamic"> FCVA Current - Islamic</option>
+                    <option value="fcva-saving-islamic"> FCVA Saving – Islamic</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
                   <input type="text" class="form-control" placeholder="Full Name" autocomplete="fullname" required>
                 </div>
                 <div class="input-group mb-3">
@@ -33,7 +50,15 @@
                   </div>
                   Non Resident Pakistani <input type="checkbox" class="form-control" placeholder="" autocomplete="nonResident" required>
                 </div>
-                <button type="button" class="btn btn-block btn-success">Create Account</button>
+                <button type="button" class="btn btn-block btn-success" id="account_id" (click)="showOtp()">Create Account</button>
+                <br>
+                <div class="input-group mb-3" id="otp" style="display: none;" >
+                  <p class="text-muted">Enter your OTP</p>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Enter your OTP" >
+                </div>
               </form>
             </div>
 <!--            <div class="card-footer p-4">-->

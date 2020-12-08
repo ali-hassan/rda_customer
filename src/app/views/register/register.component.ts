@@ -8,4 +8,7 @@ export class RegisterComponent {
 
   constructor() { }
 
+  showOtp() {
+    document.getElementById('otp').style.display = 'block';
+  }
 }
