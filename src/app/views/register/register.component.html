@@ -28,6 +28,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
+                  <input type="text" class="form-control" placeholder="Currency" autocomplete="currency" required>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
                   <input type="text" class="form-control" placeholder="Full Name" autocomplete="fullname" required>
                 </div>
                 <div class="input-group mb-3">
@@ -50,7 +57,7 @@
                   Non Resident Pakistani <input type="checkbox" class="form-control" placeholder="" autocomplete="nonResident" required>
                 </div>
                 <ngx-recaptcha2 #captchaElem
-                                [siteKey]="siteKey"
+                                siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
                                 (reset)="handleReset()"
                                 (expire)="handleExpire()"
                                 (load)="handleLoad()"
