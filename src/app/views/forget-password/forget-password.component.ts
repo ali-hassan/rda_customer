@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'password.component.html'
+  templateUrl: 'forget-password.component.html'
 })
-export class PasswordComponent {
+export class ForgetPasswordComponent {
   constructor() { }
 }

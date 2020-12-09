@@ -8,6 +8,8 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { PasswordComponent } from './views/password/password.component';
+import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +36,20 @@ export const routes: Routes = [
     component: LoginComponent,
     data: {
       title: 'Login Page'
+    }
+  },
+  {
+    path: 'password',
+    component: PasswordComponent,
+    data: {
+      title: 'Password Page'
+    }
+  },
+  {
+    path: 'forget-password',
+    component: ForgetPasswordComponent,
+    data: {
+      title: 'Forget Password Page'
     }
   },
   {

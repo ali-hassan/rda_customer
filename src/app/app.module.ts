@@ -42,6 +42,8 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import {PasswordComponent} from './views/password/password.component';
+import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 
 @NgModule({
   imports: [
@@ -67,7 +69,9 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordComponent,
+    ForgetPasswordComponent
   ],
   providers: [{
     provide: LocationStrategy,
