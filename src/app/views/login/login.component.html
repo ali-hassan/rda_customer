@@ -32,10 +32,6 @@
                   <div class="input-group mb-4">
                     <ngx-recaptcha2 #captchaElem
                                     siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
-                                    (reset)="handleReset()"
-                                    (expire)="handleExpire()"
-                                    (load)="handleLoad()"
-                                    (success)="handleSuccess($event)"
                                     [useGlobalDomain]="false"
                                     [size]="size"
                                     [hl]="lang"

@@ -4,16 +4,16 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'login.component.html'
-
 })
+
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  // constructor(private formBuilder: FormBuilder) { }
+  protected loginForm: FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      recaptcha: new FormControl(null, Validators.required)
+    this.loginForm = this.formBuilder.group({
+      username:   [null, [Validators.required]],
+      password:   [null, [Validators.required, Validators.minLength(8)]],
+      recaptcha:  [null, Validators.required]
     });
   }
 }
