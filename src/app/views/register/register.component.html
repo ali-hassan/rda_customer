@@ -5,7 +5,7 @@
         <div class="col-md-6 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <form>
+              <form [formGroup]="aFormGroup">
                 <h1>Register</h1>
                 <p class="text-muted">Create your account</p>
                 <div class="input-group mb-3">
@@ -74,10 +74,6 @@
                 </div>
                 <ngx-recaptcha2 #captchaElem
                                 siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
-                                (reset)="handleReset()"
-                                (expire)="handleExpire()"
-                                (load)="handleLoad()"
-                                (success)="handleSuccess($event)"
                                 [useGlobalDomain]="false"
                                 [size]="size"
                                 [hl]="lang"
