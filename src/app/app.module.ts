@@ -8,6 +8,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -76,7 +77,7 @@ import { ForgetPasswordComponent } from './views/forget-password/forget-password
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  },  Title],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

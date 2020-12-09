@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { CustomvalidationService } from '../../services/customvalidation.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'password.component.html'
@@ -11,8 +11,11 @@ export class PasswordComponent implements OnInit {
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,
-    private customValidator: CustomvalidationService
-  ) { }
+    private customValidator: CustomvalidationService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Password - ABL");
+  }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
       recaptcha:          ['', Validators.required],

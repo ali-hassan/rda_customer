@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,12 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ForgetPasswordComponent implements OnInit {
   protected aFormGroup: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Forgot Password - ABL");
+  }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
       email:      ['', [Validators.required, Validators.email]],
