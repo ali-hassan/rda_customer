@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -9,10 +8,12 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  // constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.loginForm = new FormGroup({
       username: new FormControl(null, Validators.required),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)])
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      recaptcha: new FormControl(null, Validators.required)
     });
   }
 }

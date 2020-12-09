@@ -72,15 +72,17 @@
                     </div>
                   </div>
                 </div>
-                <ngx-recaptcha2 #captchaElem
-                                siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
-                                [useGlobalDomain]="false"
-                                [size]="size"
-                                [hl]="lang"
-                                [theme]="theme"
-                                [type]="type"
-                                formControlName="recaptcha">
-                </ngx-recaptcha2>
+                <div class="input-group mb-4">
+                  <ngx-recaptcha2 #captchaElem
+                                  siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
+                                  [useGlobalDomain]="false"
+                                  [size]="size"
+                                  [hl]="lang"
+                                  [theme]="theme"
+                                  [type]="type"
+                                  formControlName="recaptcha">
+                  </ngx-recaptcha2>
+                </div>
                 <button type="button" class="btn btn-block btn-success" id="account_id" (click)="showOtp()">Create Account</button>
                 <br>
                 <div class="form-group mb-3" id="otp" style="display: none;" >

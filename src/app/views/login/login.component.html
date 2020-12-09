@@ -29,24 +29,25 @@
                       Password is required and should be more than 8 characters
                     </div>
                   </div>
+                  <div class="input-group mb-4">
+                    <ngx-recaptcha2 #captchaElem
+                                    siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
+                                    (reset)="handleReset()"
+                                    (expire)="handleExpire()"
+                                    (load)="handleLoad()"
+                                    (success)="handleSuccess($event)"
+                                    [useGlobalDomain]="false"
+                                    [size]="size"
+                                    [hl]="lang"
+                                    [theme]="theme"
+                                    [type]="type"
+                                    formControlName="recaptcha">
+                    </ngx-recaptcha2>
+                  </div>
                   <div class="row">
                     <div class="col-6">
                       <button [disabled]='loginForm.invalid'  type="button" class="btn btn-primary px-4">Login</button>
                     </div>
-                    <br>
-<!--                    <ngx-recaptcha2 #captchaElem-->
-<!--                                    siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"-->
-<!--                                    (reset)="handleReset()"-->
-<!--                                    (expire)="handleExpire()"-->
-<!--                                    (load)="handleLoad()"-->
-<!--                                    (success)="handleSuccess($event)"-->
-<!--                                    [useGlobalDomain]="false"-->
-<!--                                    [size]="size"-->
-<!--                                    [hl]="lang"-->
-<!--                                    [theme]="theme"-->
-<!--                                    [type]="type"-->
-<!--                                    formControlName="recaptcha">-->
-<!--                    </ngx-recaptcha2>-->
                     <br>
                     <div class="col-6 text-right">
                       <button type="button" class="btn btn-link px-0" [routerLink]="['/forget-password']">Forgot password?</button>
