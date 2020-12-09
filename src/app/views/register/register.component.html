@@ -62,12 +62,15 @@
                   </div>
                   <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
                 </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                <div class="form-group row">
+                  <div class="col-md-12 col-form-label">
+                    <div class="form-check">
+                      <input class="form-check-input" id="checkbox1" type="checkbox" placeholder="" autocomplete="nonResident" >
+                      <label class="form-check-label text-muted" for="checkbox1">
+                        Are you a Non-Resident Pakistani or official of Federal/ Provincial Govt posted abroad?	(Yes/No)
+                      </label>
+                    </div>
                   </div>
-                  Are you a Non-Resident Pakistani or official of Federal/ Provincial Govt posted abroad?	(Yes/No) <input type="checkbox" class="form-control" placeholder="" autocomplete="nonResident" required>
                 </div>
                 <ngx-recaptcha2 #captchaElem
                                 siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
