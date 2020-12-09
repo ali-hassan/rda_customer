@@ -7,8 +7,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   protected aFormGroup: FormGroup;
-
   constructor(private formBuilder: FormBuilder) { }
+  showOtp() {
+    document.getElementById('otp').style.display = 'block';
+  }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
       recaptcha: ['', Validators.required]
