@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       recaptcha:    ['', Validators.required],
       fullName:     ['', Validators.required],
       currency:     ['', Validators.required],
-      cnic:         ['', Validators.required],
+      cnic:         ['', [Validators.required, Validators.minLength(13)]],
       email:        ['', Validators.required],
       accountType:  ['', Validators.required]
     });

@@ -50,6 +50,7 @@
     "ng2-charts": "^2.3.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-captcha": "^8.0.1",
+    "ngx-mask": "^11.1.4",
     "ngx-perfect-scrollbar": "^9.0.0",
     "rxjs": "^6.6.0",
     "simple-line-icons": "^2.5.2",

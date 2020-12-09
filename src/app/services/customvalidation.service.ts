@@ -52,7 +52,7 @@ export class CustomvalidationService {
   }
 
   validateUserName(userName: string) {
-    const UserList = ['ankit', 'admin', 'user', 'superuser'];
+    const UserList = ['test', 'admin', 'user', 'superuser'];
     return (UserList.indexOf(userName) > -1);
   }
 }

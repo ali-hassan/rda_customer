@@ -45,6 +45,13 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import {PasswordComponent} from './views/password/password.component';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfigFunction: () => Partial<IConfig> = () => {
+  return {
+    validation: false,
+  };
+};
 
 @NgModule({
   imports: [
@@ -62,7 +69,8 @@ import { ForgetPasswordComponent } from './views/forget-password/forget-password
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    NgxMaskModule.forRoot(maskConfigFunction)
   ],
   declarations: [
     AppComponent,

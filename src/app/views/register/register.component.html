@@ -66,10 +66,10 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-id-card-o"></i></span>
                   </div>
-                  <input type="text"  formControlName= "cnic" class="form-control" placeholder="CNIC Number" autocomplete="cnic" required>
+                  <input type="text"  formControlName= "cnic" class="form-control" placeholder="CNIC Number" autocomplete="cnic" mask="00000-0000000-0" required>
                   <span class="custom-validation-error w-100"
-                        *ngIf="(registerFormControl.cnic.touched || submitted) && registerFormControl.cnic.errors?.required">
-                      CNIC is required
+                     *ngIf="(registerFormControl.cnic.touched || submitted) && !aFormGroup.get('cnic').valid">
+                      Please Enter valid CNIC
                   </span>
                 </div>
                 <div class="input-group mb-3">
