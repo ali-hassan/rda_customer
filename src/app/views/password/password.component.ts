@@ -16,8 +16,8 @@ export class PasswordComponent implements OnInit {
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
       recaptcha:          ['', Validators.required],
-        password: ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
-        confirmPassword: ['', [Validators.required]],
+        password:         ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
+        confirmPassword:  ['', [Validators.required]],
       },
       {
         validator: this.customValidator.MatchPassword('password', 'confirmPassword'),

@@ -7,10 +7,22 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ForgetPasswordComponent implements OnInit {
   protected aFormGroup: FormGroup;
+  submitted = false;
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
+      email:      ['', [Validators.required, Validators.email]],
+      recaptcha:  ['', Validators.required]
     });
+  }
+  get passwordFormControl() {
+    return this.aFormGroup.controls;
+  }
+  onSubmit() {
+    this.submitted = true;
+    if (this.aFormGroup.valid) {
+      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      console.table(this.aFormGroup.value);
+    }
   }
 }
