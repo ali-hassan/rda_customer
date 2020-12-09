@@ -44,6 +44,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import {PasswordComponent} from './views/password/password.component';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
+import { OtpComponent } from './views/otp/otp.component';
 
 @NgModule({
   imports: [
@@ -71,7 +72,8 @@ import { ForgetPasswordComponent } from './views/forget-password/forget-password
     LoginComponent,
     RegisterComponent,
     PasswordComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    OtpComponent
   ],
   providers: [{
     provide: LocationStrategy,

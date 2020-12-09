@@ -3,9 +3,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'register.component.html'
+  templateUrl: 'otp.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class OtpComponent implements OnInit {
   protected aFormGroup: FormGroup;
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {

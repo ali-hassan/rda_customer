@@ -10,6 +10,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { PasswordComponent } from './views/password/password.component';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
+import {OtpComponent} from './views/otp/otp.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,13 @@ export const routes: Routes = [
     component: PasswordComponent,
     data: {
       title: 'Password Page'
+    }
+  },
+  {
+    path: 'verify-otp',
+    component: OtpComponent,
+    data: {
+      title: 'OTP Verification'
     }
   },
   {

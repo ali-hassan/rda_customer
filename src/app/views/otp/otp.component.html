@@ -1,0 +1,38 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form [formGroup]="aFormGroup">
+                <h1>OTP Verification</h1>
+                <p class="text-muted">Please verify your OTP</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Enter your OTP" >
+                </div>
+
+                <div class="input-group mb-4">
+                  <ngx-recaptcha2 #captchaElem
+                                  siteKey="6LfZNP8ZAAAAAGUrryZ5S580oMheitUhT9bnf3vA"
+                                  [useGlobalDomain]="false"
+                                  [size]="size"
+                                  [hl]="lang"
+                                  [theme]="theme"
+                                  [type]="type"
+                                  formControlName="recaptcha">
+                  </ngx-recaptcha2>
+                </div>
+
+                <button type="button" class="btn btn-block btn-success" [routerLink]="['/dashboard']">Verify OTP</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

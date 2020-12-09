@@ -83,11 +83,7 @@
                                   formControlName="recaptcha">
                   </ngx-recaptcha2>
                 </div>
-                <button type="button" class="btn btn-block btn-success" id="account_id" (click)="showOtp()">Create Account</button>
-                <br>
-                <div class="form-group mb-3" id="otp" style="display: none;" >
-                  <input type="text" class="form-control" placeholder="Enter your OTP" >
-                </div>
+                <button type="button" class="btn btn-block btn-success" [routerLink]="['/verify-otp']">Create Account</button>
               </form>
             </div>
 <!--            <div class="card-footer p-4">-->
