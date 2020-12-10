@@ -55,6 +55,7 @@
     "ngx-captcha": "^8.0.1",
     "ngx-mask": "^11.1.4",
     "ngx-perfect-scrollbar": "^9.0.0",
+    "ngx-toastr": "^13.2.0",
     "rxjs": "^6.6.0",
     "simple-line-icons": "^2.5.2",
     "ts-helpers": "^1.1.2",

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CustomvalidationService} from '../../services/customvalidation.service';
 import { Title } from '@angular/platform-browser';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'register.component.html'
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private customValidator: CustomvalidationService,
     private titleService: Title,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private toastr: ToastrService
   ) {
     this.titleService.setTitle('Register User - ABL');
   }
@@ -53,5 +55,11 @@ export class RegisterComponent implements OnInit {
       // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.aFormGroup.value);
     }
+  }
+  showMessage() {
+    this.toastr.success('OTP has been sent successfully!', 'Success',
+      {
+      timeOut: 5000,
+    });
   }
 }
