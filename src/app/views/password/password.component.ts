@@ -41,7 +41,7 @@ export class PasswordComponent implements OnInit {
         timeOut: 3000,
       });
       setTimeout(function () {
-        window.location.href = 'http://localhost:4200/#/dashboard';
+        window.location.href = 'http://localhost:4200/#/login';
       }, 3000);
     }
   }
