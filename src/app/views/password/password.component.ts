@@ -34,7 +34,7 @@ export class PasswordComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.aFormGroup.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.aFormGroup.value);
     }
   }

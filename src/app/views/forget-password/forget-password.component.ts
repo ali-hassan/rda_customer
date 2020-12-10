@@ -17,7 +17,7 @@ export class ForgetPasswordComponent implements OnInit {
   }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
-      email:      ['', [Validators.required, Validators.email]],
+      email:      ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       recaptcha:  ['', Validators.required]
     });
   }
@@ -27,7 +27,7 @@ export class ForgetPasswordComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.aFormGroup.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.aFormGroup.value);
     }
   }

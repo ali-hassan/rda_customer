@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.loginForm.value);
     }
   }

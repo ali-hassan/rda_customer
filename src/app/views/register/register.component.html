@@ -69,18 +69,16 @@
                   <input type="text"  formControlName= "cnic" class="form-control" placeholder="CNIC Number" autocomplete="cnic" mask="00000-0000000-0" required>
                   <span class="custom-validation-error w-100"
                      *ngIf="(registerFormControl.cnic.touched || submitted) && !aFormGroup.get('cnic').valid">
-                      Please Enter valid CNIC
+                      Please enter valid CNIC
                   </span>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="email"  formControlName= "email" class="form-control" placeholder="Email" autocomplete="email" required>
-                  <span class="custom-validation-error w-100"
-                        *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
-                      Email is required
-                  </span>
+                  <input type="text"  formControlName= "email" class="form-control" placeholder="Email" autocomplete="email" required>
+                    <span class="custom-validation-error w-100" *ngIf="((registerFormControl.email.invalid && registerFormControl.email.touched) || registerFormControl.email.dirty) && registerFormControl.email.errors?.required">Email is required</span>
+                    <span class="custom-validation-error w-100" *ngIf="((registerFormControl.email.invalid && registerFormControl.email.touched) || registerFormControl.email.dirty) && registerFormControl.email.errors?.pattern">Please provide a valid email address</span>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12 col-form-label">

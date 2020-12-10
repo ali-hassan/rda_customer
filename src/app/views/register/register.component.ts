@@ -21,19 +21,23 @@ export class RegisterComponent implements OnInit {
     this.aFormGroup = this.formBuilder.group({
       recaptcha:    ['', Validators.required],
       fullName:     ['', Validators.required],
-      currency:     ['', Validators.required],
+      currency:     ['default', Validators.required],
       cnic:         ['', [Validators.required, Validators.minLength(13)]],
-      email:        ['', Validators.required],
-      accountType:  ['', Validators.required]
+      email:        ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      accountType:  ['default', Validators.required]
     });
   }
   get registerFormControl() {
     return this.aFormGroup.controls;
   }
+
+  get primEmail() {
+    return this.aFormGroup.get('email');
+  }
   onSubmit() {
     this.submitted = true;
     if (this.aFormGroup.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.aFormGroup.value);
     }
   }
