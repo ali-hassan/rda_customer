@@ -10,6 +10,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 export class RegisterComponent implements OnInit {
   protected aFormGroup: FormGroup;
+  protected otpFormGroup: FormGroup;
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,
@@ -33,9 +34,15 @@ export class RegisterComponent implements OnInit {
       email:        ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       accountType:  ['default', Validators.required]
     });
+    this.otpFormGroup = this.formBuilder.group({
+      otp:    ['']
+    });
   }
   get registerFormControl() {
     return this.aFormGroup.controls;
+  }
+  get otpFormControl() {
+    return this.otpFormGroup.controls;
   }
   get primEmail() {
     return this.aFormGroup.get('email');

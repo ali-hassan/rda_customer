@@ -131,21 +131,11 @@
             <div class="col-md-12 mx-auto">
               <div class="carda amx-3">
                 <div class="card-bodys ps-4">
-                  <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
+                  <form [formGroup]="otpFormGroup" (ngSubmit)="onSubmit()">
                     <p class="text-muted">OTP has been sent to your registered email, please enter it below.</p>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="icon-user"></i></span>
-                      </div>
-                      <input type="text" formControlName="otp" class="form-control" placeholder="Enter your OTP" >
-                      <span class="custom-validation-error w-100"
-                            *ngIf="(registerFormControl.otp.touched || submitted) && registerFormControl.otp.errors?.required">
-                      OTP is required
-                  </span>
-                    </div>
                     <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:5}"></ng-otp-input>
-
-                    <button type="submit" [disabled]='aFormGroup.invalid' class="btn btn-block btn-success" [routerLink]="['/dashboard']">Verify OTP</button>
+                    <br>
+                    <button type="submit" class="btn btn-block btn-success" [routerLink]="['/dashboard']" (click)="modalRef.hide()">Verify OTP</button>
                   </form>
                   <div class="row" style="margin-top: 10px;">
                     <div class="col-12">
