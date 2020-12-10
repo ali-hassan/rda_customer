@@ -9,7 +9,9 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { BootstrapModalModule } from 'ngx-bootstrap-modal';
+import { RouterModule } from '@angular/router';
+import { NbThemeModule } from '@nebular/theme';
+import { NbStepperModule, NbCardModule } from '@nebular/theme';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -49,6 +51,8 @@ import { ForgetPasswordComponent } from './views/forget-password/forget-password
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OtpComponent } from './views/otp/otp.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ProfileComponent } from './views/profile/profile.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -76,7 +80,11 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     NgxMaskModule.forRoot(maskConfigFunction),
     BrowserModule,
     ModalModule.forRoot(),
-    NgOtpInputModule
+    NgOtpInputModule,
+    NbThemeModule.forRoot(),
+    RouterModule, // RouterModule.forRoot(routes, { useHash: true }), if this is your app.module
+    NbStepperModule,
+    NbCardModule
   ],
   declarations: [
     AppComponent,
@@ -87,7 +95,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     RegisterComponent,
     PasswordComponent,
     ForgetPasswordComponent,
-    OtpComponent
+    OtpComponent,
+    ProfileComponent,
+    CustomerProfileComponent
   ],
   providers: [{
     provide: LocationStrategy,
