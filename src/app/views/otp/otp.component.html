@@ -5,14 +5,18 @@
         <div class="col-md-6 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <form [formGroup]="aFormGroup">
+              <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
                 <h1>OTP Verification</h1>
                 <p class="text-muted">Please verify your OTP</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Enter your OTP" >
+                  <input type="text" formControlName="otp" class="form-control" placeholder="Enter your OTP" >
+                  <span class="custom-validation-error w-100"
+                      *ngIf="(registerFormControl.otp.touched || submitted) && registerFormControl.otp.errors?.required">
+                      OTP is required
+                  </span>
                 </div>
 
                 <div class="input-group mb-4">
@@ -25,9 +29,13 @@
                                   [type]="type"
                                   formControlName="recaptcha">
                   </ngx-recaptcha2>
+                  <span class="custom-validation-error w-100"
+                        *ngIf="(registerFormControl.recaptcha.touched || submitted) && registerFormControl.recaptcha.errors?.required">
+                        Please check captcha
+                    </span>
                 </div>
 
-                <button type="button" class="btn btn-block btn-success" [routerLink]="['/dashboard']">Verify OTP</button>
+                <button type="submit" [disabled]='aFormGroup.invalid' class="btn btn-block btn-success" [routerLink]="['/dashboard']">Verify OTP</button>
               </form>
             </div>
           </div>
