@@ -10,6 +10,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { BootstrapModalModule } from 'ngx-bootstrap-modal';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -76,7 +77,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     NgxMaskModule.forRoot(maskConfigFunction),
     BrowserModule,
     ModalModule.forRoot(),
-    NgOtpInputModule
+    NgOtpInputModule,
+    FlashMessagesModule.forRoot()
   ],
   declarations: [
     AppComponent,
