@@ -7,6 +7,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -45,6 +46,7 @@ import { ChartsModule } from 'ng2-charts';
 import {PasswordComponent} from './views/password/password.component';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 import { OtpComponent } from './views/otp/otp.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   imports: [
@@ -62,7 +64,8 @@ import { OtpComponent } from './views/otp/otp.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    MDBBootstrapModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -73,7 +76,8 @@ import { OtpComponent } from './views/otp/otp.component';
     RegisterComponent,
     PasswordComponent,
     ForgetPasswordComponent,
-    OtpComponent
+    OtpComponent,
+    ProfileComponent
   ],
   providers: [{
     provide: LocationStrategy,
