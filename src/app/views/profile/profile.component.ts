@@ -8,7 +8,7 @@ import {Title} from '@angular/platform-browser';
 })
 
 export class ProfileComponent implements OnInit {
-  protected aFormGroup: FormGroup;
+  aFormGroup: FormGroup;
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,

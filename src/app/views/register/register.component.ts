@@ -9,13 +9,12 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 
 export class RegisterComponent implements OnInit {
-  protected aFormGroup: FormGroup;
-  protected otpFormGroup: FormGroup;
+   aFormGroup: FormGroup;
+   otpFormGroup: FormGroup;
   submitted = false;
   isButtonVisible = false;
   constructor(
     private formBuilder: FormBuilder,
-    private customValidator: CustomvalidationService,
     private titleService: Title,
     private modalService: BsModalService
   ) {

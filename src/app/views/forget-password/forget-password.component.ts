@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: 'forget-password.component.html'
 })
 export class ForgetPasswordComponent implements OnInit {
-  protected aFormGroup: FormGroup;
+  aFormGroup: FormGroup;
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,

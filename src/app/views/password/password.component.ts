@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: 'password.component.html'
 })
 export class PasswordComponent implements OnInit {
-  protected aFormGroup: FormGroup;
+  aFormGroup: FormGroup;
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,

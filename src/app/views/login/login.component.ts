@@ -6,9 +6,8 @@ import {Title} from '@angular/platform-browser';
   selector: 'app-dashboard',
   templateUrl: 'login.component.html'
 })
-
 export class LoginComponent implements OnInit {
-  protected loginForm: FormGroup;
+  loginForm: FormGroup;
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,
