@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   protected aFormGroup: FormGroup;
   protected otpFormGroup: FormGroup;
   submitted = false;
+  isButtonVisible = false;
   constructor(
     private formBuilder: FormBuilder,
     private customValidator: CustomvalidationService,
@@ -35,7 +36,7 @@ export class RegisterComponent implements OnInit {
       accountType:  ['default', Validators.required]
     });
     this.otpFormGroup = this.formBuilder.group({
-      otp:    ['']
+      otp:    ['', Validators.required]
     });
   }
   get registerFormControl() {
@@ -50,8 +51,22 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.aFormGroup.valid) {
-      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.aFormGroup.value);
+    }
+    if (this.otpFormGroup.valid) {
+      console.table(this.otpFormGroup.value);
+    }
+  }
+  onOtpChange(otp) {
+    console.log('Length=');
+    console.log(otp);
+    console.log(otp.length);
+    if (otp.length === 6) {
+      console.log(this.otpFormGroup.status);
+      this.isButtonVisible = true;
+    }
+    if (otp.length !== 6) {
+      this.isButtonVisible = false;
     }
   }
 }

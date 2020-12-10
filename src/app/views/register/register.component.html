@@ -133,9 +133,9 @@
                 <div class="card-bodys ps-4">
                   <form [formGroup]="otpFormGroup" (ngSubmit)="onSubmit()">
                     <p class="text-muted">OTP has been sent to your registered email, please enter it below.</p>
-                    <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:5}"></ng-otp-input>
+                    <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:6}" ></ng-otp-input>
                     <br>
-                    <button type="submit" class="btn btn-block btn-success" [routerLink]="['/dashboard']" (click)="modalRef.hide()">Verify OTP</button>
+                    <button type="submit" [disabled]='!isButtonVisible' class="btn btn-block btn-success" [routerLink]="['/profile']" (click)="modalRef.hide()">Verify OTP</button>
                   </form>
                   <div class="row" style="margin-top: 10px;">
                     <div class="col-12">

@@ -4,7 +4,7 @@ import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './profile.component.html',
+  templateUrl: './profile.component.html'
 })
 
 export class ProfileComponent implements OnInit {
@@ -18,7 +18,12 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
-      otp:    ['']
+      otp:    [''],
+      username:    [''],
+      address: [],
+      city: [],
+      country: [],
+      password: []
     });
   }
   get registerFormControl() {
@@ -32,4 +37,4 @@ export class ProfileComponent implements OnInit {
     }
   }
 }
-  
+

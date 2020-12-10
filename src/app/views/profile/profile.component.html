@@ -1,14 +1,47 @@
 <nb-card>
+  <nb-layout>
+  </nb-layout>
   <nb-card-body>
     <nb-stepper orientation="horizontal">
       <nb-step [label]="labelOne">
         <ng-template #labelOne>First step</ng-template>
         <h4>Step content #1</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <p>Profile Completion Process Gets Started</p>
+        <div class="app-body">
+          <main class="main d-flex align-items-center">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 mx-auto">
+                  <div class="card-group">
+
+                    <div class="card p-4">
+                      <div class="card-body">
+
+                        <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
+                          <p class="text-muted">Please Complete your profile</p>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon-user"></i></span>
+                            </div>
+                            <input type="text" formControlName="username" class="form-control" placeholder="Enter your username" >
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon-lock"></i></span>
+                            </div>
+                            <input type="text" formControlName="password" class="form-control" placeholder="Enter your password" >
+                          </div>
+
+                          <button type="submit" class="btn btn-block btn-success" [routerLink]="['/dashboard']">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
         <button nbButton disabled nbStepperNext>prev</button>
         <button nbButton nbStepperNext>next</button>
       </nb-step>
@@ -16,25 +49,50 @@
         <ng-template #labelTwo>Second step</ng-template>
         <h4>Step content #2</h4>
         <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
+          Your profile must be completed before you can start.
         </p>
-        <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
-          <p class="text-muted">Please verify your OTP</p>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-user"></i></span>
-            </div>
-            <input type="text" formControlName="otp" class="form-control" placeholder="Enter your OTP" >
-            <span class="custom-validation-error w-100"
-                  *ngIf="(registerFormControl.otp.touched || submitted) && registerFormControl.otp.errors?.required">
-                      OTP is required
-                  </span>
-          </div>
+        <div class="app-body">
+          <main class="main d-flex align-items-center">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 mx-auto">
+                  <div class="card-group">
 
-          <button type="submit" class="btn btn-block btn-success" [routerLink]="['/dashboard']">Verify OTP</button>
-        </form>
+                    <div class="card p-4">
+                      <div class="card-body">
+
+                        <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
+                          <p class="text-muted">Please Complete your profile</p>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon-user"></i></span>
+                            </div>
+                            <input type="text" formControlName="username" class="form-control" placeholder="Enter your address" >
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon-lock"></i></span>
+                            </div>
+                            <input type="text" formControlName="password" class="form-control" placeholder="Enter your city" >
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon-lock"></i></span>
+                            </div>
+                            <input type="text" formControlName="password" class="form-control" placeholder="Enter your country" >
+                          </div>
+
+                          <button type="submit" class="btn btn-block btn-success" [routerLink]="['/dashboard']">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+
         <button nbButton nbStepperPrevious>prev</button>
         <button nbButton nbStepperNext>next</button>
       </nb-step>

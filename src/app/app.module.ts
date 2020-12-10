@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NbThemeModule } from '@nebular/theme';
-import { NbStepperModule, NbCardModule } from '@nebular/theme';
+import { NbStepperModule, NbCardModule, NbLayoutModule } from '@nebular/theme';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -84,6 +84,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     NbThemeModule.forRoot(),
     RouterModule, // RouterModule.forRoot(routes, { useHash: true }), if this is your app.module
     NbStepperModule,
+    NbLayoutModule,
     NbCardModule
   ],
   declarations: [
