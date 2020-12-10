@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CustomvalidationService} from '../../services/customvalidation.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +9,35 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   protected aFormGroup: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  submitted = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private customValidator: CustomvalidationService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Register User - ABL");
+  }
   ngOnInit() {
     this.aFormGroup = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
+      recaptcha:    ['', Validators.required],
+      fullName:     ['', Validators.required],
+      currency:     ['', Validators.required],
+      cnic:         ['', [Validators.required, Validators.minLength(13)]],
+      email:        ['', Validators.required],
+      accountType:  ['', Validators.required]
     });
+  }
+  get registerFormControl() {
+    return this.aFormGroup.controls;
+  }
+  onSubmit() {
+    this.submitted = true;
+    if (this.aFormGroup.valid) {
+      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      console.table(this.aFormGroup.value);
+    }
+  }
+  showOtp() {
+    document.getElementById('otp').style.display = 'block';
   }
 }

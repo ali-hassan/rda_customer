@@ -6,9 +6,7 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-<!--                <form [formGroup]='loginForm' class="form">-->
-                <form (ngSubmit)='loginUser()' [formGroup]='loginForm' novalidate class="form">
-
+                <form (ngSubmit)="onSubmit()" [formGroup]='loginForm' novalidate class="form">
                   <h1>Login</h1>
                   <p class="text-muted">Sign In to your account</p>
                   <div class="input-group mb-3">
@@ -16,18 +14,20 @@
                       <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
                     <input formControlName='username' type="text" class="form-control" placeholder="Username" required>
-                    <div style="color:#813838" *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
-                      Please enter a valid username to continue
-                    </div>
+                    <span class="custom-validation-error w-100"
+                      *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
+                        Please enter a valid username to continue
+                    </span>
                   </div>
                   <div class="input-group mb-4">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
                     <input formControlName='password' type="password" class="form-control" placeholder="Password" required>
-                    <div style="color:#813838" *ngIf=" !loginForm.get('password').valid && loginForm.get('username').touched">
-                      Password is required and should be more than 8 characters
-                    </div>
+                    <span class="custom-validation-error w-100"
+                      *ngIf=" !loginForm.get('password').valid && loginForm.get('username').touched">
+                        Password is required and should be more than 8 characters
+                    </span>
                   </div>
                   <div class="input-group mb-4">
                     <ngx-recaptcha2 #captchaElem
@@ -51,13 +51,17 @@
                   </div>
                 </form>
               </div>
+              <div class="row" style="padding: 0 1.25rem">
+                <div class="col-12">
+                  Don't have any account?
+                  <button type="button" class="btn btn-link px-0"  [routerLink]="['/register']">Register Now!</button>
+                </div>
+              </div>
             </div>
-            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <div class="card text-white py-5 d-md-down-none" style="width:44%">
               <div class="card-body text-center">
                 <div>
-                  <h2>Sign up</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <button type="button" class="btn btn-primary active mt-3"  [routerLink]="['/register']">Register Now!</button>
+                  <img class="img-fluid" src="assets/img/logo.png" alt="logo image">
                 </div>
               </div>
             </div>

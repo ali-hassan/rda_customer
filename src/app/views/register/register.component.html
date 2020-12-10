@@ -5,14 +5,14 @@
         <div class="col-md-6 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <form [formGroup]="aFormGroup">
-                <h1>Register</h1>
+              <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
+                <h1 class="text-center">Register</h1>
                 <p class="text-muted">Create your account</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
                   </div>
-                  <select type="text" class="form-control" placeholder="Account Type" autocomplete="accountType" required>
+                  <select type="text" formControlName="accountType" class="form-control" placeholder="Account Type" autocomplete="accountType" required>
                     <option value="default">Select Account Type</option>
                     <option value="nrva-current">NRVA Current - Conventional</option>
                     <option value="nrva-saving">NRVA Saving - Conventional</option>
@@ -23,13 +23,17 @@
                     <option value="fcva-current-islamic"> FCVA Current - Islamic</option>
                     <option value="fcva-saving-islamic"> FCVA Saving – Islamic</option>
                   </select>
+                  <span class="custom-validation-error w-100"
+                        *ngIf="(registerFormControl.accountType.touched || submitted) && registerFormControl.accountType.errors?.required">
+                      Account Type is required
+                  </span>
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-money"></i></span>
                   </div>
-                  <select type="text" class="form-control" placeholder="Select Currency" autocomplete="accountType" required>
+                  <select type="text" formControlName= "currency" class="form-control" placeholder="Select Currency" autocomplete="accountType" required>
                     <option value="default">Select Currency</option>
                     <option value="pkr">PKR</option>
                     <option value="usd">USD</option>
@@ -43,24 +47,40 @@
                     <option value="chf">CHF</option>
                     <option value="try">TRY</option>
                   </select>
+                  <span class="custom-validation-error w-100"
+                        *ngIf="(registerFormControl.currency.touched || submitted) && registerFormControl.currency.errors?.required">
+                      Currency is required
+                  </span>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Full Name" autocomplete="fullname" required>
+                  <input type="text" formControlName= "fullName" class="form-control text-uppercase" placeholder="Full Name" autocomplete="fullname" required>
+                  <span class="custom-validation-error w-100"
+                        *ngIf="(registerFormControl.fullName.touched || submitted) && registerFormControl.fullName.errors?.required">
+                      Full Name is required
+                  </span>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-id-card-o"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="CNIC Number" autocomplete="cnic" required>
+                  <input type="text"  formControlName= "cnic" class="form-control" placeholder="CNIC Number" autocomplete="cnic" mask="00000-0000000-0" required>
+                  <span class="custom-validation-error w-100"
+                     *ngIf="(registerFormControl.cnic.touched || submitted) && !aFormGroup.get('cnic').valid">
+                      Please Enter valid CNIC
+                  </span>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                  <input type="email"  formControlName= "email" class="form-control" placeholder="Email" autocomplete="email" required>
+                  <span class="custom-validation-error w-100"
+                        *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+                      Email is required
+                  </span>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12 col-form-label">
@@ -83,7 +103,11 @@
                                   formControlName="recaptcha">
                   </ngx-recaptcha2>
                 </div>
-                <button type="button" class="btn btn-block btn-success" [routerLink]="['/verify-otp']">Create Account</button>
+                <button type="submit" [disabled]='aFormGroup.invalid' [routerLink]="['/verify-otp']" class="btn btn-block btn-success" id="account_id" (click)="showOtp()">Create Account</button>
+                <br>
+                <div class="form-group mb-3" id="otp" style="display: none;" >
+                  <input type="text" class="form-control" placeholder="Enter your OTP" >
+                </div>
               </form>
             </div>
 <!--            <div class="card-footer p-4">-->

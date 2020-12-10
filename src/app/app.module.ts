@@ -8,6 +8,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -45,6 +46,13 @@ import { ChartsModule } from 'ng2-charts';
 import {PasswordComponent} from './views/password/password.component';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 import { OtpComponent } from './views/otp/otp.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfigFunction: () => Partial<IConfig> = () => {
+  return {
+    validation: false,
+  };
+};
 
 @NgModule({
   imports: [
@@ -62,7 +70,8 @@ import { OtpComponent } from './views/otp/otp.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    NgxMaskModule.forRoot(maskConfigFunction)
   ],
   declarations: [
     AppComponent,
@@ -78,7 +87,7 @@ import { OtpComponent } from './views/otp/otp.component';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  },  Title],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
