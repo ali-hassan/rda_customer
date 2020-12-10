@@ -1,33 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { Component, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-otp',
   templateUrl: 'otp.component.html'
 })
-export class OtpComponent implements OnInit {
-  protected aFormGroup: FormGroup;
-  submitted = false;
-  constructor(
-    private formBuilder: FormBuilder,
-    private titleService: Title
-  ) {
-    this.titleService.setTitle("OTP Verification - ABL");
-  }
-  ngOnInit() {
-    this.aFormGroup = this.formBuilder.group({
-      otp:        ['', Validators.required]
-    });
-  }
-  get registerFormControl() {
-    return this.aFormGroup.controls;
-  }
-  onSubmit() {
-    this.submitted = true;
-    if (this.aFormGroup.valid) {
-      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-      console.table(this.aFormGroup.value);
-    }
+export class OtpComponent {
+  modalRef: BsModalRef;
+  constructor(private modalService: BsModalService) {}
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

@@ -101,26 +101,64 @@
                                   formControlName="recaptcha">
                   </ngx-recaptcha2>
                 </div>
-                <button type="submit" [disabled]='aFormGroup.invalid' [routerLink]="['/verify-otp']" class="btn btn-block btn-success" id="account_id" (click)="showOtp()">Create Account</button>
+                <button type="submit" [disabled]='aFormGroup.invalid' class="btn btn-block btn-success" id="account_id" (click)="openModal(otpModal)">Create Account</button>
                 <br>
                 <div class="form-group mb-3" id="otp" style="display: none;" >
                   <input type="text" class="form-control" placeholder="Enter your OTP" >
                 </div>
               </form>
             </div>
-<!--            <div class="card-footer p-4">-->
-<!--              <div class="row">-->
-<!--                <div class="col-6">-->
-<!--                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>-->
-<!--                </div>-->
-<!--                <div class="col-6">-->
-<!--                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
           </div>
         </div>
       </div>
     </div>
   </main>
 </div>
+
+<ng-template #otpModal>
+  <div class="modal-header">
+    <h1 class="modal-title text-center">OTP Verification</h1>
+
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="app-body">
+      <main class="main d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mx-auto">
+              <div class="carda amx-3">
+                <div class="card-bodys ps-4">
+                  <form [formGroup]="aFormGroup" (ngSubmit)="onSubmit()">
+                    <p class="text-muted">OTP has been sent to your registered email, please enter it below.</p>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-user"></i></span>
+                      </div>
+                      <input type="text" formControlName="otp" class="form-control" placeholder="Enter your OTP" >
+                      <span class="custom-validation-error w-100"
+                            *ngIf="(registerFormControl.otp.touched || submitted) && registerFormControl.otp.errors?.required">
+                      OTP is required
+                  </span>
+                    </div>
+                    <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:5}"></ng-otp-input>
+
+                    <button type="submit" [disabled]='aFormGroup.invalid' class="btn btn-block btn-success" [routerLink]="['/dashboard']">Verify OTP</button>
+                  </form>
+                  <div class="row" style="margin-top: 10px;">
+                    <div class="col-12">
+                      I didn't get the OTP yet!
+                      <button type="button" class="btn btn-link px-0">Resend OTP</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</ng-template>
