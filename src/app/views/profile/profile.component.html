@@ -54,7 +54,6 @@
                                         <button
                                           type="submit"
                                           class="btn btn-block btn-success"
-                                          [routerLink]="['/dashboard']"
                                         >
                                           Submit
                                         </button>
@@ -136,7 +135,6 @@
                                               <button
                                                 type="submit"
                                                 class="btn btn-block btn-success"
-                                                [routerLink]="['/dashboard']"
                                               >
                                                 Submit
                                               </button>
@@ -149,9 +147,6 @@
                                 </div>
                               </main>
                             </div>
-
-                            <button nbButton nbStepperPrevious>prev</button>
-                            <button nbButton nbStepperNext>next</button>
                           </nb-step>
                           <nb-step label="Third step">
                             <h4>Step content #3</h4>
@@ -162,8 +157,6 @@
                               crocodizzle shut the shizzle up, gravida vizzle,
                               dang.
                             </p>
-                            <button nbButton nbStepperPrevious>prev</button>
-                            <button nbButton nbStepperNext>next</button>
                           </nb-step>
                           <nb-step [label]="labelFour">
                             <ng-template #labelFour>Fourth step</ng-template>
@@ -175,10 +168,6 @@
                               crocodizzle shut the shizzle up, gravida vizzle,
                               dang.
                             </p>
-                            <button nbButton nbStepperPrevious>prev</button>
-                            <button nbButton disabled nbStepperNext>
-                              next
-                            </button>
                           </nb-step>
                         </nb-stepper>
                       </nb-card-body>
